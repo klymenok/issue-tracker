@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Issue List</title>
+</head>
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+<body>
+    <div style="margin: 10px">
+        <a href="/issue/create">
+            <button class="btn btn-success">Create a new issue</button>
+        </a>
+    </div>
+    <ul>
+        {% for issue in object_list %}
+            <li>{{ issue.id }}: {{ issue.title }}. Created by {{ issue.created_by.first_name }}
+            {% if issue.resolved_by %}
+                RESOLVED
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

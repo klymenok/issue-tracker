@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Issue</title>
+</head>
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+<body>
+Here you can create an issue:
+<br>
+<form method="POST" action="create">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-success" type="submit" value="Submit">Submit</button>
+</form>
+
+
+</body>
+</html>
